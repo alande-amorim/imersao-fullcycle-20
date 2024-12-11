@@ -1,0 +1,26 @@
+GET http://localhost:3000/places?text="av boa viagem, 1000, recife"
+###
+GET http://localhost:3000/places?text="av conde da boa vista, 200, recife"
+
+###
+
+@originId = ChIJ3w770aUfqwcRx_TEvJb1yv4
+@destinationId = ChIJQQiONb8YqwcRLZSUgjBjiEs
+
+###
+GET http://localhost:3000/directions?originId={{ originId }}&destinationId={{ destinationId }}
+
+###
+POST http://localhost:3000/routes
+Content-Type: application/json
+
+{
+    "name": "Rota 1",
+    "source_id": "{{ originId }}",
+    "destination_id": "{{ destinationId }}"
+}
+###
+GET http://localhost:3000/routes
+
+###
+GET http://localhost:3000/routes/6758dc94fe097ee0ae6bd303
